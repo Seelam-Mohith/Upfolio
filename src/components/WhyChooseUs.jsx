@@ -30,7 +30,7 @@ export default function WhyChooseUs() {
         <SectionTitle
           subtitle="Why Upfolio"
           title="Built Different. Built Better."
-          description="We combine institutional-grade AI technology with an obsessive focus on user experience to deliver something truly exceptional."
+          description="We combine cutting-edge AI technology with deep hiring expertise to deliver a resume optimization experience that truly works."
         />
 
         <motion.div

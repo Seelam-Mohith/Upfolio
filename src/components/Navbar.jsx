@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, ChevronRight } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { navLinks } from '../data/navigation'
-import Button from './Button'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -43,16 +42,6 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="hidden lg:flex items-center gap-4">
-            <Button variant="ghost" size="sm">
-              Sign In
-            </Button>
-            <Button size="sm">
-              Get Started
-              <ChevronRight size={16} />
-            </Button>
-          </div>
-
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden p-2 text-gray-400 hover:text-white transition-colors"
@@ -81,15 +70,6 @@ export default function Navbar() {
                   {link.name}
                 </a>
               ))}
-              <div className="pt-4 border-t border-white/5 space-y-3">
-                <Button variant="ghost" className="w-full justify-center">
-                  Sign In
-                </Button>
-                <Button className="w-full justify-center">
-                  Get Started
-                  <ChevronRight size={16} />
-                </Button>
-              </div>
             </div>
           </motion.div>
         )}

@@ -15,8 +15,8 @@ export default function Footer() {
               <span className="text-xl font-bold text-white">Upfolio</span>
             </a>
             <p className="text-sm text-gray-400 leading-relaxed mb-6">
-              AI-powered portfolio intelligence for modern investors. Make
-              smarter decisions with institutional-grade tools.
+              AI-powered resume analysis for modern professionals. Make
+              your resume stand out with intelligent optimization tools.
             </p>
             <div className="flex gap-3">
               {['Twitter', 'LinkedIn', 'GitHub'].map((social) => (

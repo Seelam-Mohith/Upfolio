@@ -29,8 +29,8 @@ export default function Features() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           subtitle="Features"
-          title="Everything You Need to Invest Smarter"
-          description="Upfolio combines cutting-edge AI with an intuitive interface to give you institutional-grade portfolio management tools."
+          title="Everything You Need to Land the Job"
+          description="Upfolio combines cutting-edge AI with an intuitive interface to give you professional-grade resume optimization tools."
         />
 
         <motion.div

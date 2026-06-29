@@ -12,8 +12,8 @@ export default function HowItWorks() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           subtitle="How It Works"
-          title="Three Simple Steps to Smarter Investing"
-          description="Get started with Upfolio in minutes. No complex setup, no learning curve — just actionable AI-powered insights."
+          title="Three Simple Steps to a Better Resume"
+          description="Upfolio analyzes your resume in seconds. No complex setup, no learning curve — just actionable AI-powered insights."
         />
 
         <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 items-start">

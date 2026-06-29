@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, BarChart3, TrendingUp, Sparkles } from 'lucide-react'
+import { FileText, CheckCircle, Sparkles } from 'lucide-react'
 import Button from './Button'
 
 const floatingIcons = [
-  { Icon: BarChart3, delay: 0, x: '-20%', y: '10%' },
-  { Icon: TrendingUp, delay: 0.3, x: '25%', y: '-15%' },
+  { Icon: FileText, delay: 0, x: '-20%', y: '10%' },
+  { Icon: CheckCircle, delay: 0.3, x: '25%', y: '-15%' },
   { Icon: Sparkles, delay: 0.6, x: '-30%', y: '-25%' },
 ]
 
@@ -31,33 +31,27 @@ export default function Hero() {
             >
               <Sparkles size={16} className="text-primary" />
               <span className="text-sm text-gray-300">
-                AI-Powered Portfolio Intelligence
+                AI-Powered Resume Analysis
               </span>
             </motion.div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-[1.1] mb-6">
               Transform Your
               <br />
-              <span className="gradient-text">Investment Strategy</span>
+              <span className="gradient-text">Resume Strategy</span>
               <br />
               with AI
             </h1>
 
             <p className="text-lg sm:text-xl text-gray-400 leading-relaxed mb-8 max-w-xl">
-              Upfolio leverages advanced machine learning to analyze, optimize,
-              and monitor your portfolio in real-time. Make smarter investment
-              decisions with institutional-grade AI.
+              Upfolio uses advanced machine learning to analyze, optimize, and
+              perfect your resume. Get past ATS filters and land more interviews
+              with AI-powered insights.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" href="#cta">
-                Start Free Trial
-                <ArrowRight size={20} />
-              </Button>
-              <Button variant="secondary" size="lg" href="#how-it-works">
-                See How It Works
-              </Button>
-            </div>
+            <Button variant="secondary" size="lg" href="#how-it-works">
+              See How It Works
+            </Button>
 
             <motion.div
               initial={{ opacity: 0 }}
@@ -76,8 +70,8 @@ export default function Hero() {
                 ))}
               </div>
               <div>
-                <div className="text-white font-semibold">10,000+</div>
-                <div className="text-sm text-gray-400">Active Investors</div>
+                <div className="text-white font-semibold">50,000+</div>
+                <div className="text-sm text-gray-400">Resumes Optimized</div>
               </div>
             </motion.div>
           </motion.div>
@@ -92,20 +86,20 @@ export default function Hero() {
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
                   <h3 className="text-lg font-semibold text-white">
-                    Portfolio Overview
+                    Resume Scorecard
                   </h3>
                   <span className="text-sm text-green-400 flex items-center gap-1">
-                    <TrendingUp size={14} />
-                    +12.4%
+                    <CheckCircle size={14} />
+                    82/100
                   </span>
                 </div>
 
                 <div className="space-y-4">
                   {[
-                    { label: 'Tech Stocks', value: 45, color: 'bg-blue-500' },
-                    { label: 'Crypto', value: 25, color: 'bg-cyan-500' },
-                    { label: 'Bonds', value: 20, color: 'bg-purple-500' },
-                    { label: 'Real Estate', value: 10, color: 'bg-orange-500' },
+                    { label: 'ATS Keywords', value: 88, color: 'bg-blue-500' },
+                    { label: 'Formatting', value: 95, color: 'bg-cyan-500' },
+                    { label: 'Impact Metrics', value: 65, color: 'bg-purple-500' },
+                    { label: 'Content Density', value: 78, color: 'bg-orange-500' },
                   ].map((item) => (
                     <div key={item.label}>
                       <div className="flex justify-between text-sm mb-1">
@@ -128,8 +122,8 @@ export default function Hero() {
 
                 <div className="glass rounded-xl p-4">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm text-gray-400">AI Risk Score</span>
-                    <span className="text-sm text-green-400 font-semibold">Low Risk</span>
+                    <span className="text-sm text-gray-400">ATS Compatibility</span>
+                    <span className="text-sm text-green-400 font-semibold">Strong Match</span>
                   </div>
                   <div className="flex gap-1">
                     {[1, 2, 3, 4, 5].map((i) => (

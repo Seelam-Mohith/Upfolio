@@ -6,39 +6,39 @@ export const navLinks = [
 
 export const features = [
   {
-    title: 'AI Portfolio Analysis',
-    description: 'Get instant, AI-powered insights into your investment portfolio with advanced risk assessment and optimization suggestions.',
-    icon: 'BarChart3',
+    title: 'AI Resume Parsing',
+    description: 'Upload any resume format and our AI instantly extracts and structures all your experience, skills, education, and achievements.',
+    icon: 'FileText',
     gradient: 'from-blue-500 to-cyan-500',
   },
   {
-    title: 'Real-Time Monitoring',
-    description: 'Track your investments with real-time market data, alerts, and intelligent notifications for important market movements.',
-    icon: 'Activity',
+    title: 'ATS Compatibility Score',
+    description: 'Get a detailed ATS (Applicant Tracking System) compatibility score with specific suggestions to pass automated screenings.',
+    icon: 'Target',
     gradient: 'from-cyan-500 to-teal-500',
   },
   {
-    title: 'Smart Rebalancing',
-    description: 'Automatically detect portfolio drift and receive AI-driven rebalancing recommendations to maintain your target allocation.',
-    icon: 'RefreshCw',
+    title: 'Smart Keyword Optimization',
+    description: 'AI analyzes job descriptions and suggests the most impactful keywords to include, increasing your match rate by up to 60%.',
+    icon: 'Search',
     gradient: 'from-purple-500 to-pink-500',
   },
   {
-    title: 'Risk Intelligence',
-    description: 'Comprehensive risk analysis using machine learning models that adapt to market conditions and your personal risk tolerance.',
-    icon: 'Shield',
+    title: 'Skill Gap Analysis',
+    description: 'Identify missing skills and certifications compared to your target roles, with personalized learning recommendations.',
+    icon: 'BarChart3',
     gradient: 'from-orange-500 to-red-500',
   },
   {
-    title: 'Performance Analytics',
-    description: 'Deep-dive analytics with interactive charts, benchmark comparisons, and detailed performance attribution reports.',
-    icon: 'TrendingUp',
+    title: 'Format & Design Check',
+    description: 'Ensure your resume meets industry standards for layout, length, file type, and design — optimized for both humans and bots.',
+    icon: 'Layout',
     gradient: 'from-green-500 to-emerald-500',
   },
   {
-    title: 'Tax Optimization',
-    description: 'Intelligent tax-loss harvesting suggestions and tax-aware portfolio management to maximize your after-tax returns.',
-    icon: 'Receipt',
+    title: 'Real-Time Suggestions',
+    description: 'Get live, AI-powered suggestions as you edit your resume — from bullet point rewrites to impact metric enhancements.',
+    icon: 'Zap',
     gradient: 'from-indigo-500 to-purple-500',
   },
 ]
@@ -46,41 +46,41 @@ export const features = [
 export const howItWorks = [
   {
     step: '01',
-    title: 'Connect Your Portfolio',
-    description: 'Link your brokerage accounts or manually add your holdings. Upfolio supports 5000+ assets across global markets.',
+    title: 'Upload Your Resume',
+    description: 'Upload your resume in PDF, DOCX, or TXT format. Upfolio supports all major formats and instantly parses your content.',
   },
   {
     step: '02',
-    title: 'AI Analysis Engine',
-    description: 'Our advanced AI models analyze your portfolio across hundreds of dimensions including risk, diversification, and performance.',
+    title: 'AI-Powered Analysis',
+    description: 'Our advanced AI scans your resume across 50+ dimensions — from keyword density and ATS compatibility to impact and formatting.',
   },
   {
     step: '03',
-    title: 'Get Smart Insights',
-    description: 'Receive actionable insights, personalized recommendations, and automated alerts to optimize your investment strategy.',
+    title: 'Get Actionable Insights',
+    description: 'Receive a comprehensive report with score, suggestions, and an optimized version of your resume ready for any application.',
   },
 ]
 
 export const whyChooseUs = [
   {
-    title: 'Institutional-Grade AI',
-    description: 'Powered by the same machine learning models used by hedge funds and asset managers, now accessible to everyone.',
+    title: 'Industry-Leading AI',
+    description: 'Powered by models trained on millions of successful resumes and hiring patterns across top companies and industries.',
     icon: 'Brain',
   },
   {
-    title: 'Military-Grade Security',
-    description: 'Your financial data is encrypted with AES-256 and protected by bank-level security protocols. We never store your credentials.',
+    title: 'Privacy First',
+    description: 'Your resume data is encrypted end-to-end and never stored longer than needed. We respect your privacy and data ownership.',
     icon: 'Lock',
   },
   {
-    title: 'Zero Learning Curve',
-    description: 'Designed for both beginners and experts. Get meaningful insights from day one with our intuitive, user-friendly interface.',
+    title: 'Instant Results',
+    description: 'Get a complete resume analysis in under 30 seconds. No waiting, no complex setup — just upload and get insights immediately.',
     icon: 'Zap',
   },
   {
-    title: '24/7 Support',
-    description: 'Our dedicated support team and AI assistant are available around the clock to help you with any questions or concerns.',
-    icon: 'HeadphonesIcon',
+    title: 'Expert-Backed',
+    description: 'Built with insights from professional recruiters, HR managers, and hiring experts across top Fortune 500 companies.',
+    icon: 'Users',
   },
 ]
 
