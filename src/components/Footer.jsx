@@ -1,4 +1,5 @@
 import { footerLinks } from '../data/navigation'
+import LogoIcon from './LogoIcon'
 
 export default function Footer() {
   return (
@@ -8,10 +9,8 @@ export default function Footer() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 lg:gap-12">
           <div className="col-span-2 md:col-span-4 lg:col-span-1">
-            <a href="#" className="flex items-center gap-2 group mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                <span className="text-white font-bold text-sm">U</span>
-              </div>
+            <a href="#" className="flex items-center gap-2.5 group mb-4">
+              <LogoIcon size={32} />
               <span className="text-xl font-bold text-white">Upfolio</span>
             </a>
             <p className="text-sm text-gray-400 leading-relaxed mb-6">

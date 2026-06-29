@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { navLinks } from '../data/navigation'
+import LogoIcon from './LogoIcon'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -23,10 +24,8 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          <a href="#" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-              <span className="text-white font-bold text-sm">U</span>
-            </div>
+          <a href="#" className="flex items-center gap-2.5 group">
+            <LogoIcon size={32} />
             <span className="text-xl font-bold text-white">Upfolio</span>
           </a>
 
