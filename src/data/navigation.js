@@ -2,7 +2,6 @@ export const navLinks = [
   { name: 'Features', href: '#features' },
   { name: 'How It Works', href: '#how-it-works' },
   { name: 'Why Upfolio', href: '#why-upfolio' },
-  { name: 'Pricing', href: '#pricing' },
 ]
 
 export const features = [
@@ -88,7 +87,6 @@ export const whyChooseUs = [
 export const footerLinks = {
   product: [
     { name: 'Features', href: '#features' },
-    { name: 'Pricing', href: '#pricing' },
     { name: 'Integrations', href: '#' },
     { name: 'Changelog', href: '#' },
   ],
