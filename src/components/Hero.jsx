@@ -61,7 +61,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-            className="relative hidden lg:block self-start lg:mt-16"
+            className="relative hidden lg:block self-start lg:mt-6"
           >
             <div className="glass-card p-8 glow">
               <div className="space-y-6">
