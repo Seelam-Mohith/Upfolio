@@ -10,7 +10,7 @@ const floatingIcons = [
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-14">
       <div className="absolute inset-0 bg-grid" />
       <div className="absolute inset-0 bg-gradient-radial" />
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px]" />
