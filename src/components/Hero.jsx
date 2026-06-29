@@ -53,27 +53,7 @@ export default function Hero() {
               See How It Works
             </Button>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8, duration: 0.6 }}
-              className="flex items-center gap-6 mt-12 pt-8 border-t border-white/5"
-            >
-              <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map((i) => (
-                  <div
-                    key={i}
-                    className="w-10 h-10 rounded-full border-2 border-bg-dark bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-xs font-bold text-white"
-                  >
-                    {String.fromCharCode(64 + i)}
-                  </div>
-                ))}
-              </div>
-              <div>
-                <div className="text-white font-semibold">50,000+</div>
-                <div className="text-sm text-gray-400">Resumes Optimized</div>
-              </div>
-            </motion.div>
+
           </motion.div>
 
           <motion.div
