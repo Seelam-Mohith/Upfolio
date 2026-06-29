@@ -1,5 +1,6 @@
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { FileText, CheckCircle, Sparkles } from 'lucide-react'
+import { FileText, CheckCircle, Sparkles, ArrowRight } from 'lucide-react'
 import Button from './Button'
 
 const floatingIcons = [
@@ -116,6 +117,13 @@ export default function Hero() {
                     ))}
                   </div>
                 </div>
+
+                <Link to="/analyze" className="block">
+                  <Button className="w-full justify-center mt-6" size="md">
+                    Analyze Your Resume
+                    <ArrowRight size={18} />
+                  </Button>
+                </Link>
               </div>
             </div>
 
