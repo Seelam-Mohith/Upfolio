@@ -24,7 +24,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          <a href="#" className="flex items-center gap-2.5 group">
+          <a href="/" className="flex items-center gap-2.5 group">
             <LogoIcon size={32} />
             <span className="text-xl font-bold text-white">Upfolio</span>
           </a>
@@ -39,6 +39,15 @@ export default function Navbar() {
                 {link.name}
               </a>
             ))}
+          </div>
+
+          <div className="hidden lg:flex items-center gap-4">
+            <a
+              href="/upload"
+              className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-xl bg-gradient-to-r from-primary to-secondary text-white hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+            >
+              Upload Resume
+            </a>
           </div>
 
           <button
@@ -69,6 +78,13 @@ export default function Navbar() {
                   {link.name}
                 </a>
               ))}
+              <a
+                href="/upload"
+                onClick={() => setIsOpen(false)}
+                className="block w-full text-center px-5 py-3 text-sm font-semibold rounded-xl bg-gradient-to-r from-primary to-secondary text-white transition-all duration-300"
+              >
+                Upload Resume
+              </a>
             </div>
           </motion.div>
         )}
