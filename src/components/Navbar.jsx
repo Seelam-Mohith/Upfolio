@@ -41,15 +41,6 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="hidden lg:flex items-center gap-4">
-            <a
-              href="/upload"
-              className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-xl bg-gradient-to-r from-primary to-secondary text-white hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
-            >
-              Upload Resume
-            </a>
-          </div>
-
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden p-2 text-gray-400 hover:text-white transition-colors"
@@ -78,13 +69,6 @@ export default function Navbar() {
                   {link.name}
                 </a>
               ))}
-              <a
-                href="/upload"
-                onClick={() => setIsOpen(false)}
-                className="block w-full text-center px-5 py-3 text-sm font-semibold rounded-xl bg-gradient-to-r from-primary to-secondary text-white transition-all duration-300"
-              >
-                Upload Resume
-              </a>
             </div>
           </motion.div>
         )}

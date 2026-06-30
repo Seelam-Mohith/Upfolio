@@ -1,7 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import LandingLayout from './layouts/LandingLayout'
 import Home from './pages/Home'
-import Analyze from './pages/Analyze'
 import Upload from './pages/Upload'
 
 function App() {
@@ -9,8 +8,7 @@ function App() {
     <Routes>
       <Route element={<LandingLayout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/analyze" element={<Analyze />} />
-        <Route path="/upload" element={<Upload />} />
+        <Route path="/analyze" element={<Upload />} />
       </Route>
     </Routes>
   )

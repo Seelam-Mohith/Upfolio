@@ -1,7 +1,6 @@
 import { useState, useCallback } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowRight, CheckCircle } from 'lucide-react'
+import { CheckCircle, RotateCcw } from 'lucide-react'
 import toast from 'react-hot-toast'
 import UploadBox from '../components/upload/UploadBox'
 import FilePreview from '../components/upload/FilePreview'
@@ -12,8 +11,6 @@ import GlassCard from '../components/GlassCard'
 import { uploadResume } from '../services/api'
 
 export default function Upload() {
-  const navigate = useNavigate()
-
   const [file, setFile] = useState(null)
   const [uploadError, setUploadError] = useState(null)
   const [jobDescription, setJobDescription] = useState('')
@@ -35,6 +32,14 @@ export default function Upload() {
   const handleRemove = useCallback(() => {
     setFile(null)
     setUploadError(null)
+    setComplete(false)
+  }, [])
+
+  const handleReset = useCallback(() => {
+    setFile(null)
+    setUploadError(null)
+    setJobDescription('')
+    setComplete(false)
   }, [])
 
   const handleAnalyze = useCallback(async () => {
@@ -62,25 +67,22 @@ export default function Upload() {
 
       setStatus(statuses[0])
 
-      const result = await uploadResume(file, jobDescription, (p) => {
+      await uploadResume(file, jobDescription, (p) => {
         setProgress(p)
       })
 
       clearInterval(statusInterval)
       setStatus('Analysis complete!')
       setComplete(true)
+      setUploading(false)
 
       toast.success('Resume analyzed successfully!')
-
-      setTimeout(() => {
-        navigate('/analyze', { state: { result: result.data } })
-      }, 800)
     } catch (err) {
       setUploading(false)
       setProgress(0)
       toast.error(err.message || 'Analysis failed. Please try again.')
     }
-  }, [file, jobDescription, navigate])
+  }, [file, jobDescription])
 
   return (
     <section className="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden">
@@ -134,10 +136,19 @@ export default function Upload() {
               <motion.div
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="flex items-center justify-center gap-2.5 px-8 py-4 text-base font-bold rounded-xl bg-green-500/10 border border-green-500/20 text-green-400"
+                className="space-y-4"
               >
-                <CheckCircle size={22} />
-                Analysis Complete — Redirecting...
+                <div className="flex items-center justify-center gap-2.5 px-8 py-4 text-base font-bold rounded-xl bg-green-500/10 border border-green-500/20 text-green-400">
+                  <CheckCircle size={22} />
+                  Analysis Complete
+                </div>
+                <button
+                  onClick={handleReset}
+                  className="w-full flex items-center justify-center gap-2 px-8 py-3 text-sm font-semibold rounded-xl glass text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-300"
+                >
+                  <RotateCcw size={18} />
+                  Analyze Another Resume
+                </button>
               </motion.div>
             ) : (
               <AnalyzeButton
