@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { CheckCircle, RotateCcw } from 'lucide-react'
+import { CheckCircle, RotateCcw, Sparkles } from 'lucide-react'
 import toast from 'react-hot-toast'
 import UploadBox from '../components/upload/UploadBox'
 import FilePreview from '../components/upload/FilePreview'
@@ -8,6 +8,7 @@ import JDInput from '../components/upload/JDInput'
 import AnalyzeButton from '../components/upload/AnalyzeButton'
 import LoadingOverlay from '../components/upload/LoadingOverlay'
 import GlassCard from '../components/GlassCard'
+import ResultsDashboard from '../components/results/ResultsDashboard'
 import { uploadResume } from '../services/api'
 
 export default function Upload() {
@@ -18,6 +19,7 @@ export default function Upload() {
   const [progress, setProgress] = useState(0)
   const [status, setStatus] = useState('Uploading...')
   const [complete, setComplete] = useState(false)
+  const [resultData, setResultData] = useState(null)
 
   const handleFileSelect = useCallback((selectedFile, error) => {
     if (error) {
@@ -27,12 +29,15 @@ export default function Upload() {
     }
     setFile(selectedFile)
     setUploadError(null)
+    setComplete(false)
+    setResultData(null)
   }, [])
 
   const handleRemove = useCallback(() => {
     setFile(null)
     setUploadError(null)
     setComplete(false)
+    setResultData(null)
   }, [])
 
   const handleReset = useCallback(() => {
@@ -40,6 +45,8 @@ export default function Upload() {
     setUploadError(null)
     setJobDescription('')
     setComplete(false)
+    setResultData(null)
+    setProgress(0)
   }, [])
 
   const handleAnalyze = useCallback(async () => {
@@ -67,12 +74,13 @@ export default function Upload() {
 
       setStatus(statuses[0])
 
-      await uploadResume(file, jobDescription, (p) => {
+      const result = await uploadResume(file, jobDescription, (p) => {
         setProgress(p)
       })
 
       clearInterval(statusInterval)
       setStatus('Analysis complete!')
+      setResultData(result.data)
       setComplete(true)
       setUploading(false)
 
@@ -85,89 +93,92 @@ export default function Upload() {
   }, [file, jobDescription])
 
   return (
-    <section className="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden">
+    <section className="relative min-h-screen pt-28 pb-16 overflow-hidden">
       <div className="absolute inset-0 bg-grid" />
       <div className="absolute inset-0 bg-gradient-radial" />
 
-      <div className="relative max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-10"
-        >
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-4">
-            Upload Your{' '}
-            <span className="gradient-text">Resume</span>
-          </h1>
-          <p className="text-base sm:text-lg text-gray-400 max-w-lg mx-auto">
-            Get instant AI-powered insights, ATS compatibility score, and
-            personalized optimization suggestions.
-          </p>
-        </motion.div>
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        {!complete && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center mb-10"
+          >
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-4">
+              Upload Your{' '}
+              <span className="gradient-text">Resume</span>
+            </h1>
+            <p className="text-base sm:text-lg text-gray-400 max-w-lg mx-auto">
+              Get instant AI-powered insights, ATS compatibility score, and
+              personalized optimization suggestions.
+            </p>
+          </motion.div>
+        )}
 
-        <GlassCard className="p-6 sm:p-8 md:p-10 glow" hover={false}>
-          <div className="space-y-6">
-            <UploadBox
-              onFileSelect={handleFileSelect}
-              error={uploadError}
-              disabled={uploading}
-            />
+        <AnimatePresence mode="wait">
+          {!complete ? (
+            <motion.div
+              key="upload-form"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="max-w-2xl mx-auto"
+            >
+              <GlassCard className="p-6 sm:p-8 md:p-10 glow" hover={false}>
+                <div className="space-y-6">
+                  <UploadBox
+                    onFileSelect={handleFileSelect}
+                    error={uploadError}
+                    disabled={uploading}
+                  />
 
-            <AnimatePresence mode="wait">
-              {file && (
-                <motion.div
-                  key="file-preview"
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                >
-                  <FilePreview file={file} onRemove={handleRemove} />
-                </motion.div>
-              )}
-            </AnimatePresence>
+                  <AnimatePresence mode="wait">
+                    {file && (
+                      <motion.div
+                        key="file-preview"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                      >
+                        <FilePreview file={file} onRemove={handleRemove} />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
 
-            <JDInput
-              value={jobDescription}
-              onChange={setJobDescription}
-              disabled={uploading}
-            />
+                  <JDInput
+                    value={jobDescription}
+                    onChange={setJobDescription}
+                    disabled={uploading}
+                  />
 
-            {complete ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="space-y-4"
-              >
-                <div className="flex items-center justify-center gap-2.5 px-8 py-4 text-base font-bold rounded-xl bg-green-500/10 border border-green-500/20 text-green-400">
-                  <CheckCircle size={22} />
-                  Analysis Complete
+                  <AnalyzeButton
+                    onClick={handleAnalyze}
+                    loading={uploading}
+                    disabled={!file}
+                  />
                 </div>
-                <button
-                  onClick={handleReset}
-                  className="w-full flex items-center justify-center gap-2 px-8 py-3 text-sm font-semibold rounded-xl glass text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-300"
-                >
-                  <RotateCcw size={18} />
-                  Analyze Another Resume
-                </button>
-              </motion.div>
-            ) : (
-              <AnalyzeButton
-                onClick={handleAnalyze}
-                loading={uploading}
-                disabled={!file}
-              />
-            )}
-          </div>
-        </GlassCard>
+              </GlassCard>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-          className="text-center text-xs text-gray-500 mt-6"
-        >
-          Your resume data is encrypted and never stored without permission.
-        </motion.p>
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4 }}
+                className="text-center text-xs text-gray-500 mt-6"
+              >
+                Your resume data is encrypted and never stored without permission.
+              </motion.p>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="results"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+            >
+              <ResultsDashboard data={resultData} onReset={handleReset} />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       <LoadingOverlay

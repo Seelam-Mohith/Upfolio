@@ -1,6 +1,10 @@
 const MOCK_DELAY = 2500
 const PROGRESS_INTERVAL = 250
 
+function randomScore(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min
+}
+
 export async function uploadResume(file, jobDescription, onProgress) {
   const validTypes = [
     'application/pdf',
@@ -31,56 +35,85 @@ export async function uploadResume(file, jobDescription, onProgress) {
 
       setTimeout(() => {
         if (Math.random() > 0.1) {
+          const atsScore = randomScore(60, 94)
+          const sectionScores = {
+            keywordMatch: randomScore(55, 95),
+            skillMatch: randomScore(50, 90),
+            experience: randomScore(60, 95),
+            education: randomScore(55, 90),
+            formatting: randomScore(45, 85),
+          }
+
+          const matchedSkills = [
+            'React',
+            'JavaScript',
+            'Python',
+            'Node.js',
+            'TypeScript',
+            'SQL',
+            'Git',
+          ]
+
+          const missingSkills = jobDescription
+            ? ['Kubernetes', 'GraphQL', 'Redis', 'AWS', 'Docker', 'CI/CD']
+            : ['Kubernetes', 'GraphQL', 'Redis']
+
           resolve({
             success: true,
             data: {
               fileName: file.name,
               fileSize: file.size,
               fileType: file.type,
-              atsScore: Math.floor(Math.random() * 35) + 60,
-              keywordMatch: Math.floor(Math.random() * 30) + 60,
-              readabilityScore: Math.floor(Math.random() * 25) + 70,
-              keywords: [
-                'React',
-                'JavaScript',
-                'Python',
-                'Node.js',
-                'TypeScript',
-                'SQL',
-                'AWS',
-                'Docker',
+              atsScore,
+              sectionScores,
+              matchedSkills,
+              missingSkills,
+              strengths: [
+                'Strong technical skill set with modern web technologies including React and Node.js',
+                'Clear and well-structured work experience descriptions with relevant keywords',
+                'Solid educational background in Computer Science from a reputable institution',
+                'Good use of action verbs throughout experience section',
               ],
-              missingKeywords: jobDescription
-                ? ['Kubernetes', 'GraphQL', 'Redis', 'CI/CD']
-                : [],
+              weaknesses: [
+                'Missing quantifiable achievements and specific metrics in experience descriptions',
+                'No certifications or professional development mentioned',
+                'Summary section lacks targeted keywords for specific roles',
+                'Formatting inconsistencies detected in bullet points and section headers',
+              ],
               suggestions: [
-                'Add more quantifiable achievements with specific metrics',
-                'Include relevant certifications and professional development',
-                'Strengthen your summary section with targeted keywords',
-                'Ensure consistent formatting across all sections',
+                'Add quantifiable achievements with specific metrics (e.g., "Increased performance by 40%")',
+                'Include relevant certifications (AWS, Google Cloud, or industry-specific certs)',
+                'Strengthen your professional summary with role-specific keywords from job descriptions',
+                'Standardize formatting across all sections for a cleaner, more professional look',
+                'Add a dedicated skills section with proficiency levels for better ATS parsing',
+                'Include links to GitHub portfolio, LinkedIn, and personal website',
               ],
+              summary:
+                'Experienced software engineer with 5+ years in full-stack development. Proficient in React, Node.js, TypeScript, and cloud technologies. Proven track record of delivering scalable web applications and leading cross-functional teams. Passionate about clean code, performance optimization, and mentoring junior developers.',
+              keywordMatch: randomScore(60, 90),
+              readabilityScore: randomScore(65, 95),
+              keywords: matchedSkills,
+              missingKeywords: missingSkills,
               parsedData: {
                 name: 'John Doe',
                 email: 'john.doe@email.com',
                 phone: '+1 (555) 123-4567',
                 location: 'San Francisco, CA',
-                skills: [
-                  'React',
-                  'JavaScript',
-                  'Python',
-                  'Node.js',
-                  'TypeScript',
-                ],
+                skills: matchedSkills,
                 experience: [
                   {
                     company: 'Tech Corp',
                     role: 'Senior Software Engineer',
                     duration: '2021 - Present',
+                    description:
+                      'Led development of microservices architecture serving 1M+ users',
                   },
                   {
                     company: 'StartupX',
                     role: 'Full Stack Developer',
                     duration: '2018 - 2021',
+                    description:
+                      'Built and scaled React frontend with Node.js backend',
                   },
                 ],
                 education: [
@@ -95,7 +128,9 @@ export async function uploadResume(file, jobDescription, onProgress) {
           })
         } else {
           reject(
-            new Error('Analysis failed. Please try again or upload a different file.')
+            new Error(
+              'Analysis failed. Please try again or upload a different file.'
+            )
           )
         }
       }, 500)
