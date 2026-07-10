@@ -425,8 +425,429 @@ Education
 
 Bachelor's Degree.
 
-ATS Keywords
+    ATS Keywords
 
 DevOps, Docker, Kubernetes, AWS, Terraform, Jenkins, CI/CD`,
+  },
+  {
+    id: 'cloud-engineer',
+    title: 'Cloud Engineer',
+    description: `Job Summary
+
+We are looking for a Cloud Engineer to design, deploy, and maintain secure, scalable cloud infrastructure. The ideal candidate should have experience with cloud platforms, infrastructure automation, and cloud-native services.
+
+Responsibilities
+Design and deploy cloud infrastructure.
+Configure networking and security.
+Manage virtual machines and cloud storage.
+Automate cloud deployments.
+Monitor cloud resources.
+Optimize cloud costs.
+
+Required Skills
+AWS
+Microsoft Azure
+Google Cloud Platform (GCP)
+EC2
+S3
+Lambda
+IAM
+VPC
+Docker
+Kubernetes
+Terraform
+Linux
+Git
+
+Preferred Skills
+CloudFormation
+Ansible
+Jenkins
+
+Experience
+
+1–4 Years
+
+Education
+
+Bachelor's Degree in Computer Science or related field.
+
+ATS Keywords
+
+AWS, Azure, GCP, Cloud, Terraform, Kubernetes, Docker`,
+  },
+  {
+    id: 'cybersecurity-analyst',
+    title: 'Cybersecurity Analyst',
+    description: `Job Summary
+
+We are looking for a Cybersecurity Analyst to monitor, detect, and respond to security threats while ensuring organizational security compliance.
+
+Responsibilities
+Monitor security alerts.
+Conduct vulnerability assessments.
+Perform penetration testing.
+Investigate security incidents.
+Maintain security documentation.
+Recommend security improvements.
+
+Required Skills
+Network Security
+Kali Linux
+Wireshark
+Burp Suite
+Nmap
+Metasploit
+SIEM
+OWASP Top 10
+Python
+Linux
+
+Preferred Skills
+Splunk
+Nessus
+CEH Certification
+
+Experience
+
+1–3 Years
+
+Education
+
+Bachelor's Degree in Computer Science, Cybersecurity, or related field.
+
+ATS Keywords
+
+Cybersecurity, Penetration Testing, Kali Linux, Burp Suite, SIEM, OWASP`,
+  },
+  {
+    id: 'qa-automation',
+    title: 'QA Automation Engineer',
+    description: `Job Summary
+
+We are seeking a QA Automation Engineer to develop automated test scripts and ensure software quality through comprehensive testing.
+
+Responsibilities
+Design test plans.
+Develop automated test scripts.
+Perform API testing.
+Execute regression testing.
+Report and track defects.
+
+Required Skills
+Selenium
+Playwright
+Cypress
+Java
+Python
+TestNG
+JUnit
+Postman
+REST API Testing
+Git
+
+Preferred Skills
+JMeter
+Jenkins
+
+Experience
+
+1–3 Years
+
+Education
+
+Bachelor's Degree.
+
+ATS Keywords
+
+Automation Testing, Selenium, Cypress, Playwright, Postman, API Testing`,
+  },
+  {
+    id: 'mobile-dev',
+    title: 'Mobile Application Developer',
+    description: `Job Summary
+
+We are hiring a Mobile Application Developer to build cross-platform and native mobile applications with high performance and excellent user experience.
+
+Responsibilities
+Develop Android and iOS applications.
+Integrate REST APIs.
+Optimize mobile performance.
+Publish applications.
+Fix bugs and improve usability.
+
+Required Skills
+Flutter
+Dart
+React Native
+Kotlin
+Swift
+Firebase
+REST APIs
+SQLite
+Git
+
+Preferred Skills
+Firebase Cloud Messaging
+Google Maps API
+
+Experience
+
+0–3 Years
+
+Education
+
+Bachelor's Degree.
+
+ATS Keywords
+
+Flutter, React Native, Android, iOS, Dart, Kotlin, Swift`,
+  },
+  {
+    id: 'blockchain',
+    title: 'Blockchain Developer',
+    description: `Job Summary
+
+We are seeking a Blockchain Developer to develop decentralized applications and secure smart contracts for blockchain platforms.
+
+Responsibilities
+Develop smart contracts.
+Build decentralized applications (DApps).
+Integrate blockchain APIs.
+Perform smart contract testing.
+Ensure blockchain security.
+
+Required Skills
+Solidity
+Ethereum
+Hardhat
+Remix
+Web3.js
+Ethers.js
+JavaScript
+Git
+
+Preferred Skills
+Avalanche
+Polygon
+Hyperledger
+
+Experience
+
+1–3 Years
+
+Education
+
+Bachelor's Degree.
+
+ATS Keywords
+
+Blockchain, Solidity, Ethereum, Smart Contracts, Web3, Hardhat`,
+  },
+  {
+    id: 'iot-engineer',
+    title: 'IoT Engineer',
+    description: `Job Summary
+
+We are looking for an IoT Engineer to design and develop smart connected systems using embedded devices and cloud platforms.
+
+Responsibilities
+Develop embedded software.
+Interface sensors and actuators.
+Build IoT communication systems.
+Integrate cloud platforms.
+Monitor IoT devices.
+
+Required Skills
+Arduino
+ESP32
+Raspberry Pi
+MQTT
+Python
+C
+C++
+Embedded Systems
+IoT Protocols
+
+Preferred Skills
+AWS IoT
+Node-RED
+
+Experience
+
+0–3 Years
+
+Education
+
+Bachelor's Degree.
+
+ATS Keywords
+
+IoT, Arduino, ESP32, MQTT, Raspberry Pi, Embedded Systems`,
+  },
+  {
+    id: 'dba',
+    title: 'Database Administrator (DBA)',
+    description: `Job Summary
+
+We are seeking a Database Administrator to manage, optimize, and secure enterprise database systems.
+
+Responsibilities
+Install and configure databases.
+Monitor database performance.
+Perform backup and recovery.
+Optimize SQL queries.
+Ensure data security.
+
+Required Skills
+MySQL
+PostgreSQL
+Oracle
+SQL Server
+SQL
+Backup & Recovery
+Performance Tuning
+Linux
+
+Preferred Skills
+MongoDB
+Redis
+
+Experience
+
+2–5 Years
+
+Education
+
+Bachelor's Degree.
+
+ATS Keywords
+
+Database Administrator, MySQL, PostgreSQL, Oracle, SQL`,
+  },
+  {
+    id: 'sysadmin',
+    title: 'System Administrator',
+    description: `Job Summary
+
+We are hiring a System Administrator responsible for maintaining servers, operating systems, and enterprise IT infrastructure.
+
+Responsibilities
+Configure servers.
+Manage user accounts.
+Monitor system health.
+Perform software updates.
+Troubleshoot infrastructure issues.
+
+Required Skills
+Linux
+Windows Server
+Active Directory
+Bash
+PowerShell
+Networking
+Virtualization
+VMware
+
+Preferred Skills
+Docker
+Ansible
+
+Experience
+
+1–4 Years
+
+Education
+
+Bachelor's Degree.
+
+ATS Keywords
+
+Linux, Windows Server, Active Directory, System Administration`,
+  },
+  {
+    id: 'mlops',
+    title: 'MLOps Engineer',
+    description: `Job Summary
+
+We are looking for an MLOps Engineer to automate machine learning workflows and deploy scalable ML solutions.
+
+Responsibilities
+Deploy ML models.
+Automate ML pipelines.
+Monitor model performance.
+Manage model versioning.
+Collaborate with ML engineers.
+
+Required Skills
+Python
+MLflow
+Docker
+Kubernetes
+Airflow
+Git
+AWS SageMaker
+Azure ML
+Vertex AI
+CI/CD
+
+Preferred Skills
+Kubeflow
+Terraform
+
+Experience
+
+2–5 Years
+
+Education
+
+Bachelor's or Master's Degree.
+
+ATS Keywords
+
+MLOps, MLflow, Kubeflow, Docker, Kubernetes, SageMaker`,
+  },
+  {
+    id: 'sre',
+    title: 'Site Reliability Engineer (SRE)',
+    description: `Job Summary
+
+We are seeking a Site Reliability Engineer to ensure system reliability, scalability, and high availability across production environments.
+
+Responsibilities
+Monitor production systems.
+Automate operational tasks.
+Improve system reliability.
+Perform incident response.
+Optimize infrastructure performance.
+
+Required Skills
+Linux
+Docker
+Kubernetes
+Prometheus
+Grafana
+Terraform
+AWS
+Bash
+Git
+CI/CD
+
+Preferred Skills
+Go
+Python
+Ansible
+
+Experience
+
+2–5 Years
+
+Education
+
+Bachelor's Degree.
+
+ATS Keywords
+
+SRE, Kubernetes, Docker, Prometheus, Grafana, Terraform, AWS`,
   },
 ]
