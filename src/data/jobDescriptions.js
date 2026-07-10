@@ -219,8 +219,214 @@ Education
 
 Bachelor's or Master's Degree.
 
-ATS Keywords
+    ATS Keywords
 
 Data Science, Statistics, SQL, Python, Tableau, Power BI`,
+  },
+  {
+    id: 'data-analyst',
+    title: 'Data Analyst',
+    description: `Job Summary
+
+We are looking for a Data Analyst who can transform raw data into meaningful business insights.
+
+Responsibilities
+Analyze business data.
+Create reports.
+Build dashboards.
+Perform SQL queries.
+Present findings.
+
+Required Skills
+SQL
+Excel
+Power BI
+Tableau
+Python
+Pandas
+
+Preferred Skills
+Statistics
+Machine Learning
+
+Experience
+
+0–2 Years
+
+Education
+
+Bachelor's Degree.
+
+ATS Keywords
+
+SQL, Excel, Power BI, Tableau, Python, Data Analysis`,
+  },
+  {
+    id: 'nlp-engineer',
+    title: 'NLP Engineer',
+    description: `Job Summary
+
+We are looking for an NLP Engineer to build language models and intelligent text processing applications.
+
+Responsibilities
+Develop NLP pipelines.
+Build text classification models.
+Work with LLMs.
+Deploy NLP solutions.
+
+Required Skills
+Python
+spaCy
+NLTK
+Hugging Face Transformers
+LangChain
+OpenAI API
+Gemini API
+RAG
+Vector Databases
+
+Preferred Skills
+FAISS
+Pinecone
+ChromaDB
+
+Experience
+
+1–3 Years
+
+Education
+
+Bachelor's or Master's Degree.
+
+ATS Keywords
+
+NLP, LangChain, Transformers, RAG, Hugging Face, spaCy`,
+  },
+  {
+    id: 'genai-engineer',
+    title: 'Generative AI Engineer',
+    description: `Job Summary
+
+We are hiring a Generative AI Engineer to build AI-powered applications using Large Language Models and Retrieval-Augmented Generation (RAG).
+
+Responsibilities
+Build GenAI applications.
+Develop RAG pipelines.
+Design AI agents.
+Integrate LLM APIs.
+Optimize prompts.
+
+Required Skills
+Python
+LangChain
+LangGraph
+OpenAI
+Gemini
+Claude
+ChromaDB
+Pinecone
+FAISS
+Prompt Engineering
+Vector Databases
+RAG
+
+Preferred Skills
+MCP
+Docker
+FastAPI
+
+Experience
+
+1–3 Years
+
+Education
+
+Bachelor's Degree.
+
+ATS Keywords
+
+GenAI, LLM, LangChain, RAG, Prompt Engineering, Vector Database`,
+  },
+  {
+    id: 'cv-engineer',
+    title: 'Computer Vision Engineer',
+    description: `Job Summary
+
+We are seeking a Computer Vision Engineer to develop image and video processing solutions using deep learning.
+
+Responsibilities
+Develop object detection systems.
+Build image classification models.
+Process video streams.
+Optimize inference performance.
+
+Required Skills
+Python
+OpenCV
+YOLO
+TensorFlow
+PyTorch
+CNN
+Image Processing
+
+Preferred Skills
+OCR
+Segmentation
+ONNX
+
+Experience
+
+1–3 Years
+
+Education
+
+Bachelor's Degree.
+
+ATS Keywords
+
+Computer Vision, OpenCV, YOLO, CNN, TensorFlow, PyTorch`,
+  },
+  {
+    id: 'devops',
+    title: 'DevOps Engineer',
+    description: `Job Summary
+
+We are looking for a DevOps Engineer to automate deployment pipelines, manage cloud infrastructure, and improve software delivery.
+
+Responsibilities
+Build CI/CD pipelines.
+Manage cloud infrastructure.
+Containerize applications.
+Monitor system health.
+Automate deployments.
+
+Required Skills
+Docker
+Kubernetes
+Jenkins
+GitHub Actions
+Terraform
+Linux
+AWS
+Azure
+Bash
+Git
+
+Preferred Skills
+Prometheus
+Grafana
+Ansible
+
+Experience
+
+2–5 Years
+
+Education
+
+Bachelor's Degree.
+
+ATS Keywords
+
+DevOps, Docker, Kubernetes, AWS, Terraform, Jenkins, CI/CD`,
   },
 ]
