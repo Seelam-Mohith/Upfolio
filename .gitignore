@@ -33,6 +33,13 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+uploads/
+
 # Misc
 .cache
 .tmp
