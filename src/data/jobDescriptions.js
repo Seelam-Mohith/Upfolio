@@ -846,8 +846,413 @@ Education
 
 Bachelor's Degree.
 
-ATS Keywords
+    ATS Keywords
 
 SRE, Kubernetes, Docker, Prometheus, Grafana, Terraform, AWS`,
+  },
+  {
+    id: 'ai-research',
+    title: 'AI Research Engineer',
+    description: `Job Summary
+
+We are looking for an AI Research Engineer to develop cutting-edge artificial intelligence models and contribute to research-driven innovations in machine learning and deep learning.
+
+Responsibilities
+Research and implement state-of-the-art AI models.
+Train and fine-tune deep learning architectures.
+Read and reproduce research papers.
+Optimize model performance.
+Collaborate with engineering teams for deployment.
+
+Required Skills
+Python
+PyTorch
+TensorFlow
+Deep Learning
+Transformers
+Computer Vision
+NLP
+CUDA
+Git
+Linux
+
+Preferred Skills
+Hugging Face
+Distributed Training
+JAX
+MLflow
+
+Experience
+
+2–5 Years
+
+Education
+
+Master's or Bachelor's in Computer Science, Artificial Intelligence, or related field.
+
+ATS Keywords
+
+AI Research, Deep Learning, Transformers, PyTorch, TensorFlow, CUDA`,
+  },
+  {
+    id: 'prompt-engineer',
+    title: 'Prompt Engineer',
+    description: `Job Summary
+
+We are seeking a Prompt Engineer to design, evaluate, and optimize prompts for Large Language Models while building AI-powered applications.
+
+Responsibilities
+Design effective prompts.
+Evaluate LLM responses.
+Build prompt pipelines.
+Optimize AI workflows.
+Collaborate with AI engineers.
+
+Required Skills
+Prompt Engineering
+OpenAI API
+Gemini API
+Claude API
+LangChain
+LangGraph
+Python
+RAG
+Vector Databases
+Git
+
+Preferred Skills
+MCP
+LlamaIndex
+Prompt Evaluation
+
+Experience
+
+0–3 Years
+
+Education
+
+Bachelor's Degree.
+
+ATS Keywords
+
+Prompt Engineering, LLM, LangChain, OpenAI, Gemini, Claude, RAG`,
+  },
+  {
+    id: 'robotics',
+    title: 'Robotics Engineer',
+    description: `Job Summary
+
+We are looking for a Robotics Engineer to develop intelligent robotic systems integrating hardware, software, and computer vision technologies.
+
+Responsibilities
+Develop robotic applications.
+Integrate sensors.
+Build autonomous navigation systems.
+Implement computer vision algorithms.
+Test robotic systems.
+
+Required Skills
+ROS
+Python
+C++
+OpenCV
+SLAM
+Embedded Systems
+Sensors
+Linux
+
+Preferred Skills
+Gazebo
+NVIDIA Jetson
+
+Experience
+
+1–4 Years
+
+Education
+
+Bachelor's Degree.
+
+ATS Keywords
+
+Robotics, ROS, OpenCV, SLAM, Sensors, Embedded Systems`,
+  },
+  {
+    id: 'ar-vr-dev',
+    title: 'AR/VR Developer',
+    description: `Job Summary
+
+We are seeking an AR/VR Developer to build immersive augmented and virtual reality applications for mobile and desktop platforms.
+
+Responsibilities
+Develop AR/VR applications.
+Build interactive 3D environments.
+Optimize rendering performance.
+Integrate sensors and controllers.
+
+Required Skills
+Unity
+Unreal Engine
+C#
+C++
+ARCore
+ARKit
+3D Graphics
+Git
+
+Preferred Skills
+Blender
+Oculus SDK
+
+Experience
+
+1–3 Years
+
+Education
+
+Bachelor's Degree.
+
+ATS Keywords
+
+AR, VR, Unity, Unreal Engine, ARCore, ARKit`,
+  },
+  {
+    id: 'big-data',
+    title: 'Big Data Engineer',
+    description: `Job Summary
+
+We are looking for a Big Data Engineer to design and maintain large-scale distributed data processing systems.
+
+Responsibilities
+Build ETL pipelines.
+Process large datasets.
+Optimize distributed systems.
+Maintain data lakes.
+Ensure data quality.
+
+Required Skills
+Apache Spark
+Hadoop
+Kafka
+Hive
+Scala
+Python
+SQL
+Databricks
+
+Preferred Skills
+Snowflake
+Airflow
+AWS
+
+Experience
+
+2–5 Years
+
+Education
+
+Bachelor's Degree.
+
+ATS Keywords
+
+Big Data, Spark, Kafka, Hadoop, Databricks, ETL`,
+  },
+  {
+    id: 'tech-writer',
+    title: 'Technical Writer',
+    description: `Job Summary
+
+We are looking for a Technical Writer to create high-quality technical documentation, API references, user guides, and developer documentation.
+
+Responsibilities
+Write technical documentation.
+Maintain API documentation.
+Create tutorials and guides.
+Collaborate with engineering teams.
+Update documentation regularly.
+
+Required Skills
+Markdown
+Git
+API Documentation
+OpenAPI
+Swagger
+Technical Writing
+
+Preferred Skills
+Docusaurus
+ReadTheDocs
+
+Experience
+
+0–3 Years
+
+Education
+
+Bachelor's Degree.
+
+ATS Keywords
+
+Technical Writing, API Documentation, Markdown, Swagger, OpenAPI`,
+  },
+  {
+    id: 'salesforce',
+    title: 'Salesforce Developer',
+    description: `Job Summary
+
+We are seeking a Salesforce Developer to customize Salesforce CRM solutions and develop scalable enterprise applications.
+
+Responsibilities
+Develop Salesforce applications.
+Customize CRM workflows.
+Build Lightning components.
+Integrate third-party APIs.
+Maintain Salesforce platform.
+
+Required Skills
+Salesforce
+Apex
+Lightning Web Components
+SOQL
+JavaScript
+REST APIs
+Git
+
+Preferred Skills
+Salesforce Certifications
+Visualforce
+
+Experience
+
+1–4 Years
+
+Education
+
+Bachelor's Degree.
+
+ATS Keywords
+
+Salesforce, Apex, Lightning, CRM, SOQL`,
+  },
+  {
+    id: 'sap-consultant',
+    title: 'SAP Consultant',
+    description: `Job Summary
+
+We are looking for an SAP Consultant to implement, configure, and optimize SAP solutions for enterprise clients.
+
+Responsibilities
+Configure SAP modules.
+Analyze business requirements.
+Support SAP implementations.
+Troubleshoot SAP issues.
+Train end users.
+
+Required Skills
+SAP
+SAP HANA
+ABAP
+ERP
+SQL
+Business Process Analysis
+
+Preferred Skills
+SAP Fiori
+SAP S/4HANA
+
+Experience
+
+2–5 Years
+
+Education
+
+Bachelor's Degree.
+
+ATS Keywords
+
+SAP, SAP HANA, ABAP, ERP, SAP Consultant`,
+  },
+  {
+    id: 'bi-engineer',
+    title: 'Business Intelligence (BI) Engineer',
+    description: `Job Summary
+
+We are seeking a Business Intelligence Engineer to design dashboards, analyze business data, and support data-driven decision-making.
+
+Responsibilities
+Develop dashboards.
+Build data pipelines.
+Write SQL queries.
+Analyze business trends.
+Present actionable insights.
+
+Required Skills
+Power BI
+Tableau
+SQL
+Excel
+Python
+ETL
+Data Warehousing
+
+Preferred Skills
+Snowflake
+Azure Data Factory
+
+Experience
+
+1–4 Years
+
+Education
+
+Bachelor's Degree.
+
+ATS Keywords
+
+Power BI, Tableau, SQL, ETL, Business Intelligence, Data Warehouse`,
+  },
+  {
+    id: 'product-manager',
+    title: 'Product Manager',
+    description: `Job Summary
+
+We are looking for a Product Manager to define product strategy, gather requirements, and collaborate with engineering and design teams to deliver high-quality software products.
+
+Responsibilities
+Define product roadmap.
+Gather business requirements.
+Prioritize product features.
+Work with cross-functional teams.
+Analyze customer feedback.
+Track product success metrics.
+
+Required Skills
+Product Management
+Agile
+Scrum
+Jira
+Product Roadmapping
+User Stories
+Stakeholder Management
+Data Analysis
+Communication
+
+Preferred Skills
+SQL
+Figma
+A/B Testing
+Product Analytics
+
+Experience
+
+2–5 Years
+
+Education
+
+Bachelor's Degree in Computer Science, Business, or related field.
+
+ATS Keywords
+
+Product Manager, Agile, Scrum, Jira, Roadmap, User Stories, Product Strategy`,
   },
 ]
