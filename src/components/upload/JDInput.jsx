@@ -5,6 +5,11 @@ import { jobDescriptions } from '../../data/jobDescriptions'
 
 export default function JDInput({ value, onChange, disabled, className }) {
   const [showModal, setShowModal] = useState(false)
+  const [sortBy, setSortBy] = useState('popular')
+
+  const sorted = [...jobDescriptions].sort((a, b) =>
+    sortBy === 'alpha' ? a.title.localeCompare(b.title) : 0
+  )
 
   const handleSelect = (jd) => {
     onChange(jd.description)
@@ -66,19 +71,47 @@ export default function JDInput({ value, onChange, disabled, className }) {
             >
               <div className="flex items-center justify-between px-6 py-4 border-b border-white/10">
                 <h2 className="text-lg font-semibold text-white">Select Job Description</h2>
-                <button
-                  type="button"
-                  onClick={() => setShowModal(false)}
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
+                <div className="flex items-center gap-2">
+                  <div className="flex bg-white/5 rounded-lg p-0.5">
+                    <button
+                      type="button"
+                      onClick={() => setSortBy('popular')}
+                      className={cn(
+                        'px-2.5 py-1 text-xs rounded-md transition-all',
+                        sortBy === 'popular'
+                          ? 'bg-primary/20 text-primary-300'
+                          : 'text-gray-400 hover:text-gray-200'
+                      )}
+                    >
+                      Popular
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setSortBy('alpha')}
+                      className={cn(
+                        'px-2.5 py-1 text-xs rounded-md transition-all',
+                        sortBy === 'alpha'
+                          ? 'bg-primary/20 text-primary-300'
+                          : 'text-gray-400 hover:text-gray-200'
+                      )}
+                    >
+                      A-Z
+                    </button>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setShowModal(false)}
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
               </div>
               <div className="p-4 overflow-y-auto h-[calc(100%-57px)]">
                 <div className="grid gap-3 sm:grid-cols-2">
-                  {jobDescriptions.map((jd) => (
+                  {sorted.map((jd) => (
                     <button
                       key={jd.id}
                       type="button"
