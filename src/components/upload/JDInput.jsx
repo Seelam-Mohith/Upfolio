@@ -15,13 +15,18 @@ export default function JDInput({ value, onChange, disabled, className }) {
     <div className={cn('space-y-2', className)}>
       <div className="flex items-center justify-between">
         <label className="block text-sm font-medium text-gray-300">
-          Job Description
+          Job Description <span className="text-red-400">*</span>
         </label>
         <button
           type="button"
           onClick={() => setShowModal(true)}
           disabled={disabled}
-          className="px-3 py-1.5 text-xs rounded-lg border border-white/10 bg-white/5 text-gray-400 hover:border-white/20 hover:text-gray-200 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          className={cn(
+            'px-3 py-1.5 text-xs rounded-lg border transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed',
+            value
+              ? 'bg-primary/20 border-primary/50 text-primary-300'
+              : 'border-red-400/50 bg-red-400/10 text-red-400 hover:border-red-400 hover:bg-red-400/20 animate-pulse'
+          )}
         >
           {value ? 'Change JD' : 'Select JD'}
         </button>
