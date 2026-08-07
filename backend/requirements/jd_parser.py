@@ -1,6 +1,7 @@
 import re
 from utils.patterns import SKILLS_DB
 from models.job_requirements import JobRequirements
+from nlp.tfidf import extract_unique_keywords
 from utils.logger import logger
 
 # ---------------------------------------------------------------------------
@@ -257,6 +258,8 @@ def extract_jd_requirements(text: str) -> dict:
 
     keywords = _extract_keywords(sections.get("keywords", ""), required_skills)
 
+    discovered_keywords = extract_unique_keywords(text, top_n=15)
+
     experience = _extract_experience(
         sections.get("experience", "") or "\n".join(sections.values())
     )
@@ -274,6 +277,7 @@ def extract_jd_requirements(text: str) -> dict:
         skills=required_skills,
         preferred_skills=preferred_skills,
         keywords=keywords,
+        discovered_keywords=discovered_keywords,
         experience_years=experience,
         education=education,
         responsibilities=responsibilities,
