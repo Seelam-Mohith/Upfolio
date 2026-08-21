@@ -6,6 +6,7 @@ from parsers.pdf_parser import PDFParser
 from parsers.docx_parser import DocxParser
 from extractors.resume_builder import build_resume
 from requirements.jd_parser import extract_jd_requirements
+from scoring.ats_scorer import analyze_resume
 
 analyze_bp = Blueprint("analyze", __name__)
 
@@ -52,6 +53,8 @@ def upload_resume():
     job_description = request.form.get("job_description", "").strip()
     jd_requirements = extract_jd_requirements(job_description) if job_description else {}
 
+    analysis = analyze_resume(parsed_data, jd_requirements or None, text, job_description)
+
     return jsonify({
         "success": True,
         "filename": path.name,
@@ -59,4 +62,5 @@ def upload_resume():
         "text": text,
         "parsedData": parsed_data,
         "jdRequirements": jd_requirements,
+        "analysis": analysis,
     }), 200
