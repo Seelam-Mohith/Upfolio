@@ -48,8 +48,7 @@ def save_upload(file_storage) -> Path | None:
 
 
 def clean_text(raw: str) -> str:
-    lines = [line.strip() for line in raw.splitlines()]
-    lines = [line for line in lines if line]
-    text = " ".join(lines)
-    text = re.sub(r"\s+", " ", text).strip()
-    return text
+    # Keep line breaks intact — section extraction relies on headings being
+    # on their own line. Only normalize whitespace *within* each line.
+    lines = [re.sub(r"[ \t]+", " ", line.strip()) for line in raw.splitlines()]
+    return "\n".join(line for line in lines if line)
