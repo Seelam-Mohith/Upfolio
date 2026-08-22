@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS
 from config import SECRET_KEY, UPLOAD_FOLDER
 from routes.analyze import analyze_bp
 from utils.logger import logger
@@ -8,6 +9,8 @@ def create_app() -> Flask:
     app = Flask(__name__)
     app.secret_key = SECRET_KEY
     app.config["MAX_CONTENT_LENGTH"] = 10 * 1024 * 1024  # 10 MB
+
+    CORS(app)
 
     app.register_blueprint(analyze_bp)
 
