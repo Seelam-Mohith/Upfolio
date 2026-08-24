@@ -1,141 +1,78 @@
-const MOCK_DELAY = 2500
-const PROGRESS_INTERVAL = 250
+import axios from 'axios'
 
-function randomScore(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min
+const VALID_FILE_TYPES = [
+  'application/pdf',
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+]
+
+const MAX_FILE_SIZE = 10 * 1024 * 1024
+
+function validateFile(file) {
+  const extension = file.name.split('.').pop().toLowerCase()
+  const isValidType =
+    VALID_FILE_TYPES.includes(file.type) || ['pdf', 'docx'].includes(extension)
+
+  if (!isValidType) {
+    throw new Error('Invalid file type. Please upload a PDF or DOCX file.')
+  }
+
+  if (file.size > MAX_FILE_SIZE) {
+    throw new Error('File size exceeds 10MB limit.')
+  }
 }
 
 export async function uploadResume(file, jobDescription, onProgress) {
-  const validTypes = [
-    'application/pdf',
-    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-    'text/plain',
-  ]
+  validateFile(file)
 
-  if (!validTypes.includes(file.type)) {
-    throw new Error('Invalid file type. Please upload a PDF, DOCX, or TXT file.')
+  const formData = new FormData()
+  formData.append('resume', file)
+  if (jobDescription && jobDescription.trim()) {
+    formData.append('job_description', jobDescription.trim())
   }
 
-  const maxSize = 10 * 1024 * 1024
-  if (file.size > maxSize) {
-    throw new Error('File size exceeds 10MB limit.')
-  }
-
-  return new Promise((resolve, reject) => {
+  let progressInterval
+  if (onProgress) {
     let progress = 0
-    const interval = setInterval(() => {
-      const increment = Math.random() * 18 + 2
-      progress = Math.min(progress + increment, 95)
-      onProgress?.(Math.round(progress))
-    }, PROGRESS_INTERVAL)
+    progressInterval = setInterval(() => {
+      progress = Math.min(progress + Math.random() * 12 + 2, 90)
+      onProgress(Math.round(progress))
+    }, 300)
+  }
 
-    setTimeout(() => {
-      clearInterval(interval)
-      onProgress?.(100)
+  try {
+    const { data } = await axios.post('/api/upload', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+      timeout: 60000,
+    })
 
-      setTimeout(() => {
-        if (Math.random() > 0.1) {
-          const atsScore = randomScore(60, 94)
-          const sectionScores = {
-            keywordMatch: randomScore(55, 95),
-            skillMatch: randomScore(50, 90),
-            experience: randomScore(60, 95),
-            education: randomScore(55, 90),
-            formatting: randomScore(45, 85),
-          }
+    if (!data.success) {
+      throw new Error(data.error || 'Analysis failed. Please try again.')
+    }
 
-          const matchedSkills = [
-            'React',
-            'JavaScript',
-            'Python',
-            'Node.js',
-            'TypeScript',
-            'SQL',
-            'Git',
-          ]
+    onProgress?.(100)
 
-          const missingSkills = jobDescription
-            ? ['Kubernetes', 'GraphQL', 'Redis', 'AWS', 'Docker', 'CI/CD']
-            : ['Kubernetes', 'GraphQL', 'Redis']
+    return {
+      success: true,
+      data: {
+        fileName: file.name,
+        fileSize: file.size,
+        fileType: file.type,
+        pages: data.pages,
+        ...data.analysis,
+        parsedData: data.parsedData,
+      },
+    }
+  } catch (err) {
+    const message =
+      err.response?.data?.error ||
+      (err.code === 'ECONNABORTED'
+        ? 'The analysis took too long. Please try again.'
+        : err.message)
 
-          resolve({
-            success: true,
-            data: {
-              fileName: file.name,
-              fileSize: file.size,
-              fileType: file.type,
-              atsScore,
-              sectionScores,
-              matchedSkills,
-              missingSkills,
-              strengths: [
-                'Strong technical skill set with modern web technologies including React and Node.js',
-                'Clear and well-structured work experience descriptions with relevant keywords',
-                'Solid educational background in Computer Science from a reputable institution',
-                'Good use of action verbs throughout experience section',
-              ],
-              weaknesses: [
-                'Missing quantifiable achievements and specific metrics in experience descriptions',
-                'No certifications or professional development mentioned',
-                'Summary section lacks targeted keywords for specific roles',
-                'Formatting inconsistencies detected in bullet points and section headers',
-              ],
-              suggestions: [
-                'Add quantifiable achievements with specific metrics (e.g., "Increased performance by 40%")',
-                'Include relevant certifications (AWS, Google Cloud, or industry-specific certs)',
-                'Strengthen your professional summary with role-specific keywords from job descriptions',
-                'Standardize formatting across all sections for a cleaner, more professional look',
-                'Add a dedicated skills section with proficiency levels for better ATS parsing',
-                'Include links to GitHub portfolio, LinkedIn, and personal website',
-              ],
-              summary:
-                'Experienced software engineer with 5+ years in full-stack development. Proficient in React, Node.js, TypeScript, and cloud technologies. Proven track record of delivering scalable web applications and leading cross-functional teams. Passionate about clean code, performance optimization, and mentoring junior developers.',
-              keywordMatch: randomScore(60, 90),
-              readabilityScore: randomScore(65, 95),
-              keywords: matchedSkills,
-              missingKeywords: missingSkills,
-              parsedData: {
-                name: 'John Doe',
-                email: 'john.doe@email.com',
-                phone: '+1 (555) 123-4567',
-                location: 'San Francisco, CA',
-                skills: matchedSkills,
-                experience: [
-                  {
-                    company: 'Tech Corp',
-                    role: 'Senior Software Engineer',
-                    duration: '2021 - Present',
-                    description:
-                      'Led development of microservices architecture serving 1M+ users',
-                  },
-                  {
-                    company: 'StartupX',
-                    role: 'Full Stack Developer',
-                    duration: '2018 - 2021',
-                    description:
-                      'Built and scaled React frontend with Node.js backend',
-                  },
-                ],
-                education: [
-                  {
-                    institution: 'University of Technology',
-                    degree: 'B.S. Computer Science',
-                    year: '2018',
-                  },
-                ],
-              },
-            },
-          })
-        } else {
-          reject(
-            new Error(
-              'Analysis failed. Please try again or upload a different file.'
-            )
-          )
-        }
-      }, 500)
-    }, MOCK_DELAY)
-  })
+    throw new Error(message)
+  } finally {
+    if (progressInterval) clearInterval(progressInterval)
+  }
 }
 
 export async function getAnalysisHistory() {

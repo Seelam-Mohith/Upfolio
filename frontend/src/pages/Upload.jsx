@@ -154,7 +154,7 @@ export default function Upload() {
                   <AnalyzeButton
                     onClick={handleAnalyze}
                     loading={uploading}
-                    disabled={!file || !jobDescription}
+                    disabled={!file}
                   />
                 </div>
               </GlassCard>
